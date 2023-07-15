@@ -1,1 +1,24 @@
+int INPIN = 4;
+int STATE = LOW;
+int reading = 0; 
+void setup() {
+  pinMode(LED_BUILTIN, OUTPUT);
+  pinMode(INPIN, INPUT);
+  Serial.begin(9600);
+}
 
+void loop() {
+  reading = digitalRead(INPIN);
+  Serial.println(reading);
+  if (reading == HIGH)
+  {
+    digitalWrite(LED_BUILTIN,HIGH);
+    Serial.println("LED ON");
+  }
+  else
+  {
+    digitalWrite(LED_BUILTIN,LOW);
+    Serial.println("LED OFF");
+  }
+  delay(1000);
+}
